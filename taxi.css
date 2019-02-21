@@ -1,0 +1,27 @@
+#intro {
+  width: 100%;
+  height: 73vw;
+  background-image: url(./images/scott-walsh-141934-unsplash.jpg);
+  background-size: cover;
+  background-color: rgb(204, 204, 204);
+  background-blend-mode: overlay;
+  /* background-position: 0 50%; */
+  /* background-color: darkblue;
+  background-blend-mode: hard-light;
+  /* background-position: 0 50%; */ */
+
+  /* width: 100%;
+  max-height: 120px; */
+}
+#background {
+  height: 400px;
+}
+h1,h2 {
+  text-align: center;
+
+}
+h1 {
+  font-weight: bolder;
+  font-size: 50px;
+  text-transform: uppercase;
+}
