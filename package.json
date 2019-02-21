@@ -1,0 +1,15 @@
+{
+  "name": "taxis",
+  "version": "1.0.0",
+  "description": "Module0 Challenge 2 from HackABos Bootcamp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.26.3",
+    "http-server": "^0.11.1"
+  }
+}
