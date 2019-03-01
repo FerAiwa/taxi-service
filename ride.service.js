@@ -1,12 +1,9 @@
 //Manage CRUD operations
-
 export class RideService {
 
   constructor(user) {
-    console.log('rideService for', user)
     this.rides = this.getRides();
     this.RIDELIMIT = 8;
-    console.log(this.rides)
   }
 
   getRides () { return this.getStoredRides() || this.getDefaultRides() }
@@ -24,11 +21,25 @@ export class RideService {
     ];
   }
 
-  getRidebyId (id) { return this.rides.find(x => x.id === id) }
+  sortBy ({property, descending}) {
+    
+  }
 
+  sortNumbers(a,b) { return a-b }
+  
+  sortString(a,b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+   return (a > b) ? 1 : (a < b) ? -1 : 0
+  }
+
+
+
+ 
   create() {
     if(this.rides.length >= RIDELIMIT) throw `Error. Reached maximum rides (${RIDELIMIT}.)`;
-
+    
     const ride = new Ride({
       id    : RIDELIMIT+1,
       to    : prompt('Arrival city name?'),
@@ -38,14 +49,15 @@ export class RideService {
     this.rides.push(ride);
     this.saveAll();
   }
-
+  
   remove (id) {
     const ride = getRidebyId(id);
     if(!ride) throw 'Remove error. Couldn´t find ride with that id.'
     this.rides.splice(this.rides.indexOf(ride), 1);
     this.saveAll();
   }
-
+  
   saveAll () { localStorage.setItem('rides', JSON.stringify(this.rides)) }
-
+  
 }
+getRidebyId (id) { return this.rides.find(x => x.id === id) }

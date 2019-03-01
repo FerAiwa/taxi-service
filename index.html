@@ -4,31 +4,52 @@
   <link rel="stylesheet" type="text/css" href="taxi.css">
 </head>
 <body>
-  <header>
-    <p> Welcome to </p>
-    <h1> Hack A Bos-Taxi Service </h1>
-    <h2> Join the fastest and more confortable way to travel between country cities <h2>
-
-      <h2> Because we don´t only write code. We are also experienced taxi drivers! </h2>
-      <p>
-        Fulfill your nerdie dream of a 3 hour road travel talking about tech!
-      </p>
-      <nav>
-        <a href="./user-view.html"> Check our rides </a>
-        <a href="./admin-view.html"> Admin area </a>
-      </nav>
-    </header>
   <main id="intro">
+    <table>
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Departure</th>
+          <th>Price</th>
+          <th>Escala</th>
+        </tr>
+      </thead>
+      <tbody id="rides">
+      </tbody>
+    </table>
   </main>
-
-  <footer>
-    This fake website was created by Fer Ayguavives.
-    Taxi photo by Peter Kasprzyk on Unsplash.
-  </footer>
 </body>
 
-<script type="module">
-  import { Main } from './main.js';
-  Main();
+<script src="/test.js"></script>
+<script>
+  let activeFilter;
+  let descendOrderFlag = true;
+  setRideTable(rides)
+
+  const tableFields = document.querySelectorAll('th');
+  tableFields.forEach(x => x.addEventListener('click', onClickTableField))
+
+function onClickTableField (event) {
+  const name = event.target.innerHTML.toLowerCase();
+  try {
+    const key = getObjectKey(name);
+    const newOrder = sortBy(key, descendOrderFlag);
+    changeRowOrder(newOrder);
+    activeFilter = key;
+    descendOrderFlag = !descendOrderFlag;
+  }
+  catch(e) {
+    console.log(e)
+  }
+}
+
+function getObjectKey (name) {
+  switch(name) {
+    case 'departure'    : return 'from';
+    case 'destination'  : return 'to';
+    case 'price'        : return 'cost';
+    default             : throw 'Invalid name';
+  }
+}
 </script>
 </html>
