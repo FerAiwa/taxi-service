@@ -4,6 +4,7 @@
   <link rel="stylesheet" type="text/css" href="taxi.css">
 </head>
 <body>
+
   <main id="intro">
     <table>
       <thead>
@@ -19,37 +20,8 @@
     </table>
   </main>
 </body>
+<script type="module" src="/main.js">
 
-<script src="/test.js"></script>
-<script>
-  let activeFilter;
-  let descendOrderFlag = true;
-  setRideTable(rides)
-
-  const tableFields = document.querySelectorAll('th');
-  tableFields.forEach(x => x.addEventListener('click', onClickTableField))
-
-function onClickTableField (event) {
-  const name = event.target.innerHTML.toLowerCase();
-  try {
-    const key = getObjectKey(name);
-    const newOrder = sortBy(key, descendOrderFlag);
-    changeRowOrder(newOrder);
-    activeFilter = key;
-    descendOrderFlag = !descendOrderFlag;
-  }
-  catch(e) {
-    console.log(e)
-  }
-}
-
-function getObjectKey (name) {
-  switch(name) {
-    case 'departure'    : return 'from';
-    case 'destination'  : return 'to';
-    case 'price'        : return 'cost';
-    default             : throw 'Invalid name';
-  }
-}
 </script>
+
 </html>

@@ -1,13 +1,28 @@
-
+/* 
 import { User } from './_models/user.js';
 import { LoginService } from './login.js';
-import { RideService } from './ride.service.js';
+import { RideService } from './ride.service.js'; */
 
+import { RidesViewFactory } from '/rides.view.factory.js';
+import { RidesDataService } from '/rides.data.js';
+import { RidesController } from '/rides.controller.js';
 
-export function Main () {
-//Si en el momento de iniciar la función le paso los permisos, podría utilizar una factoría
-//para devolver unos métodos u otros en el servicio RideService según si es ADMIN | USER.
-    const user = LoginService(User);
-    const rideService = new RideService(user);
-}
+export const Main = (() => {
+    console.info('starting Main')
+    const config = {
+        templateRef: '#rides',
+        sortOptions: {
+            activeFilter: 'departure',
+            sortDescending: 'true'
+        }
+    };
+    const tableRef = document.querySelector(config.templateRef);
+
+    //Initialize
+    const user = 'admin';
+    const view = RidesViewFactory(user, tableRef);
+    const model = new RidesDataService();
+    const controller = new RidesController(view, model, config.sortOptions);
+    controller.initialize();
+})();
 
