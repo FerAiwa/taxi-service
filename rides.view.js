@@ -40,7 +40,7 @@ export class RidesView extends EventEmitter {
   addBuyButton() {}
 
   getScaleGlyph() {
-    return `<figure><img src="/images/taxistop.png" alt="Ride has one or more stops"></figure>`;
+    return `<figure><img src="./images/taxistop.png" alt="Ride has one or more stops"></figure>`;
   }
 
   emptyTable() {
