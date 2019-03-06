@@ -1,4 +1,4 @@
-import { RidesView } from "rides.view.js";
+import { RidesView } from "./rides.view.js";
 
 export function RidesViewFactory(userType, tableRef) {
   const view = new RidesView(tableRef);
