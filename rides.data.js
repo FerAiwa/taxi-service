@@ -14,7 +14,7 @@ export class RidesDataService {
   create () {
     if(this.rides.length >= RIDELIMIT) throw `Error. Reached maximum rides (${RIDELIMIT}.)`;
     return new Ride({
-      id    : RIDELIMIT+1,
+      id    : RIDELIMIT+1, //Nops! Fix this to last id in the array.
       to    : prompt('Arrival city name?'),
       cost  : prompt('Ride cost (€)?'),
       scale : confirm('The ride has a scale...?')
