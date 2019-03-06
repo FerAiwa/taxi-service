@@ -24,5 +24,7 @@ export const Main = (() => {
     const model = new RidesDataService();
     const controller = new RidesController(view, model, config.sortOptions);
     controller.initialize();
+    
+
 })();
 

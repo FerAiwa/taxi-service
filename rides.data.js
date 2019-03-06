@@ -41,6 +41,8 @@ export class RidesDataService {
     return this.getStoredRides() || this.rides;
   }
 
-  getStoredRides () { return JSON.parse(localStorage.getItem('rides')) }
+  getStoredRides () { 
+    return JSON.parse(localStorage.getItem('rides')) 
+  }
 
 }

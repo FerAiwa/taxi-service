@@ -6,22 +6,29 @@ export class RidesController {
 
   constructor(view, rideDataService, 
     options = {activeFilter: '', sortDescending: true}) {
-
-    this.view = view;
-    this.rideDataService = rideDataService;
-    this.activeFilter = options.activeFilter;
-    this.descendOrderFlag = options.sortDescending;
+      this.view = view;
+      this.rideDataService = rideDataService;
+      this.activeFilter = options.activeFilter;
+      this.descendOrderFlag = options.sortDescending;
   }
 
   initialize() {
-    const rideList = this.rideDataService.getRides();
+    this.rideList = this.rideDataService.getRides()
+
+    //Table set
     this.view
-      .rebuildTable(rideList)
-      .addListeners();
-      
-    this.view.on('headerClick', e => this.onClickTableField(e)
-      //console.log('Controller catch',e)
-    )
+      .rebuildTable(this.rideList)
+      .addListeners();      
+    this.view.on('headerClick', e => this.onClickTableField(e))
+
+    //Slider Set
+    let costList = this.rideList.map(x => x.cost);
+    this.view.setSliderValues(Math.min(...costList), Math.max(...costList));
+    this.view.on('sliderChange', value => this.view.updateSliderHelper(value))
+    this.view.on('sliderRelease', value => {
+      const ridesInCostRange = this.getRidesBelowPrice(value);
+      this.view.setRowsVisibility(ridesInCostRange);
+    })
   }
   
   onClickTableField (event) {
@@ -31,12 +38,28 @@ export class RidesController {
       const key = this.getObjectKey(fieldName);
       this.activeFilter = key;
       this.descendOrderFlag = !this.descendOrderFlag;
+
       const newOrder = this.sortBy(key, this.descendOrderFlag);
       this.view.changeRowsOrder(newOrder);
+
+      event.target.classList.toggle('activeFilter')
     }
     catch(e) {
       console.log(e)
     }
+  }
+
+ 
+
+  getRidesBelowPrice (maxCost) {
+    return this.rideList.map(x => x.cost < maxCost);
+  }
+
+
+  filter (property, maxValue) {
+    //minvalue
+    //maxvalue
+    //average
   }
   
   getObjectKey (name) {
@@ -49,8 +72,7 @@ export class RidesController {
   }
   
   sortBy (property, descending = true) {
-    let data = this.rideDataService.getRides();
-    data = data.map(x => { 
+    const data = this.rideList.map(x => { 
       return {id: x.id, value: x[property]}  
     });
   

@@ -1,0 +1,22 @@
+changelog
+
+TODO 
+Make tooltip ignore by screen readers (that automaticaly
+tells user the current value of the slider)
+
+
+Añadir a la última row las acciones especiales.
+admin: stopover  :edit  :delete
+user: scale :buyTicket
+
+
+06
+Added special (but ticket, scale icon)
+
+
+Rides table rows are now hidden when its cost is below the slider value.
+
+05
+Added slider functionality & tooltip
+Add some Css to make the ability to sort the table more obvious to the user.
+
