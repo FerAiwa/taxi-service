@@ -3,16 +3,13 @@ html {
 }
 body {
   font-family: sans-serif;
-
 }
 h1 {
   letter-spacing: -3px;
 }
 
 table {
-  display:block;
-  
-  
+  display: block;
 }
 table > * {
   display: flex;
@@ -20,7 +17,7 @@ table > * {
 
 tbody {
   flex-direction: column;
-  background-image: url(./images/scott-walsh-141934-unsplash.jpg);
+  background-image: url("images/scott-walsh-141934-unsplash.jpg");
   background-size: cover;
   background-position-y: 100%;
   background-repeat: no-repeat;
@@ -35,7 +32,7 @@ thead {
 
 tr {
   box-sizing: border-box;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 1px 5px;
@@ -45,15 +42,14 @@ tbody tr:nth-of-type(even) {
   background-color: rgba(211, 211, 211, 0.75);
 }
 
-td, th {
+td,
+th {
   min-width: 25%;
-
 }
-th, tbody tr td:nth-of-type(3) {
-  text-align: center
+th,
+tbody tr td:nth-of-type(3) {
+  text-align: center;
 }
-
-
 
 #intro {
   width: 100%;
@@ -61,7 +57,7 @@ th, tbody tr td:nth-of-type(3) {
   /* background-position: 0 50%; */
   /* background-color: darkblue;
   background-blend-mode: hard-light;
-  /* background-position: 0 50%; */ 
+  /* background-position: 0 50%; */
 
   /* width: 100%;
   max-height: 120px; */
@@ -69,9 +65,9 @@ th, tbody tr td:nth-of-type(3) {
 #background {
   height: 400px;
 }
-h1,h2 {
+h1,
+h2 {
   text-align: center;
-
 }
 h1 {
   font-weight: bolder;
@@ -80,37 +76,40 @@ h1 {
 }
 
 /* sort-arrows https://codepen.io/imarkrige/pen/vgmij */
-a.sort-by, a.sort-by, a.sort-by:hover, a.sort-by:visited, a.sort-by:active {
+a.sort-by,
+a.sort-by,
+a.sort-by:hover,
+a.sort-by:visited,
+a.sort-by:active {
   color: darkblue;
   text-decoration: none;
 }
-td a { 
-	display: block;
+td a {
+  display: block;
   width: 100%;
-  
 }
-th a.sort-by { 
-	padding-right: 18px;
-	position: relative;
+th a.sort-by {
+  padding-right: 18px;
+  position: relative;
 }
 a.sort-by:before,
 a.sort-by:after {
-	border: 4px solid transparent;
-	content: "";
-	display: block;
-	height: 0;
-	right: 5px;
-	top: 50%;
-	position: absolute;
-	width: 0;
+  border: 4px solid transparent;
+  content: "";
+  display: block;
+  height: 0;
+  right: 5px;
+  top: 50%;
+  position: absolute;
+  width: 0;
 }
 a.sort-by:before {
-	border-bottom-color: #666;
-	margin-top: -9px;
+  border-bottom-color: #666;
+  margin-top: -9px;
 }
 a.sort-by:after {
-	border-top-color: #666;
-	margin-top: 1px;
+  border-top-color: #666;
+  margin-top: 1px;
 }
 
 a.sort-by.activeFilter {
@@ -149,15 +148,15 @@ fieldset label {
   width: 25%;
 }
 
-
-#icon-legend{
-/*   flex-grow: 1; */  
+#icon-legend {
+  /*   flex-grow: 1; */
   display: inline-flex;
   flex-flow: row wrap;
   box-sizing: border-box;
-/*   margin: 8px 2rem;  
- */  border: 1px solid darkgrey;
-  padding: .5rem;
+  /*   margin: 8px 2rem;  
+ */
+  border: 1px solid darkgrey;
+  padding: 0.5rem;
 }
 
 #icon-legend {
@@ -168,7 +167,7 @@ fieldset label {
   box-sizing: border-box;
   height: 3.5rem;
   padding: 0.5rem 1rem;
-  font-size: .75rem;
+  font-size: 0.75rem;
   display: flex;
 }
 #icon-legend li img {
@@ -176,7 +175,6 @@ fieldset label {
   display: block;
   margin: auto;
 }
-
 
 div {
   display: flex;

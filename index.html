@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" type="text/css" href="taxi.css">
-</head>
-<body>
-  <header>
-    <h1>Rides</h1>
-  </header>
-  <main id="intro">
-    <div>
-      <form action="/">
-        <fieldset>
-          <legend>Filter by price </legend>
+  <head>
+    <link rel="stylesheet" type="text/css" href="taxi.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Rides</h1>
+    </header>
+    <main id="intro">
+      <div>
+        <form action="/">
+          <fieldset>
+            <legend>Filter by price</legend>
             <label for="minprice">Cost</label>
-            <input type="range" name="minprice" id="minprice" value="0">
-        </fieldset>
-      </form>
-      <ul id="icon-legend">
-          <li><img src="/images/taxistop.png" alt="Icon of a taxi in the stop">Ride stops</li>
-      </ul>
-    </div>
-        
+            <input type="range" name="minprice" id="minprice" value="0" />
+          </fieldset>
+        </form>
+        <ul id="icon-legend">
+          <li>
+            <img
+              src="images/taxistop.png"
+              alt="Icon of a taxi in the stop"
+            />Ride stops
+          </li>
+        </ul>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -30,11 +35,9 @@
             <th><a href="#" class="sort-by">Escala</a></th>
           </tr>
         </thead>
-        <tbody id="rides">
-        </tbody>
+        <tbody id="rides"></tbody>
       </table>
-  </main>
-</body>
-<script type="module" src="./main.js">
-</script>
+    </main>
+  </body>
+  <script type="module" src="main.js"></script>
 </html>
