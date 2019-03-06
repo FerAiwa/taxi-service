@@ -3,9 +3,9 @@ import { User } from './_models/user.js';
 import { LoginService } from './login.js';
 import { RideService } from './ride.service.js'; */
 
-import { RidesViewFactory } from "rides.view.factory.js";
-import { RidesDataService } from "rides.data.js";
-import { RidesController } from "rides.controller.js";
+import { RidesViewFactory } from "./rides.view.factory.js";
+import { RidesDataService } from "./rides.data.js";
+import { RidesController } from "./rides.controller.js";
 
 export const Main = (() => {
   console.info("starting Main");
