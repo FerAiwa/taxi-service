@@ -10,13 +10,11 @@ admin: stopover  :edit  :delete
 user: scale :buyTicket
 
 
-06
-Added special (but ticket, scale icon)
-
-
+06/03/19
+Added special (buy ticket, scale icon)
 Rides table rows are now hidden when its cost is below the slider value.
 
-05
+05/03/19
 Added slider functionality & tooltip
-Add some Css to make the ability to sort the table more obvious to the user.
+Added some Css to make the table sort option more intuitive to the user.
 
