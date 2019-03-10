@@ -1,4 +1,4 @@
-import { Ride } from "_models/ride.js";
+import { Ride } from "./_models/ride.js";
 
 export class RidesDataService {
   constructor() {
