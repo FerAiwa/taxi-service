@@ -1,4 +1,4 @@
-import { User } from "./_models/user.js";
+import { User } from "./models/user.js";
 
 export function LoginService() {
   const name = requestUserName();
