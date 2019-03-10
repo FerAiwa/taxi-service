@@ -1,19 +1,17 @@
-export function LoginService (User) {
-    
-    const name = requestUserName();    
-    const permissions =  isUserAuthorized(name) ? 'admin' : 'user';
-    
-    const user = new User (name, permissions);
+import { User } from "./_models/user.js";
 
-    function requestUserName () {
-        return prompt('What´s your name...?') 
-    };
-    
-    function isUserAuthorized (name) {
-        return name === 'admin'
-    };
+export function LoginService() {
+  const name = requestUserName();
+  const permissions = isUserAuthorized(name) ? "admin" : "user";
 
-    return user
+  const user = new User(name, permissions);
+
+  function requestUserName() {
+    return prompt("What´s your name...?", "admin");
+  }
+
+  function isUserAuthorized(name) {
+    return name === "admin";
+  }
+  return user;
 }
-    
-    

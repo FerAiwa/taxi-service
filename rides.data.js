@@ -1,7 +1,9 @@
+import { Ride } from "./_models/ride.js";
+
 export class RidesDataService {
-  constructor () {
+  constructor() {
     this.RIDELIMIT = 8;
-    this.rides = [
+    const RIDES = [
       { id: 0, to: "A Coruña", from: "Santiago", cost: 60, scale: false },
       { id: 1, to: "New York", from: "New Yersey", cost: 120, scale: false },
       { id: 2, to: "Valencia", from: "Madrid", cost: 300, scale: true },
@@ -9,40 +11,73 @@ export class RidesDataService {
       { id: 4, to: "Roma", from: "Milan", cost: 300, scale: false },
       { id: 5, to: "London", from: "Manchester", cost: 200, scale: false }
     ];
-  }
-    
-  create () {
-    if(this.rides.length >= RIDELIMIT) throw `Error. Reached maximum rides (${RIDELIMIT}.)`;
-    return new Ride({
-      id    : RIDELIMIT+1, //Nops! Fix this to last id in the array.
-      to    : prompt('Arrival city name?'),
-      cost  : prompt('Ride cost (€)?'),
-      scale : confirm('The ride has a scale...?')
-    });
+    this.localRides = this.getStoredRides() || RIDES;
+    console.log(this.localRides);
   }
 
-  add (ride) {
-    this.rides.push(ride);
-    this.saveAll();    
-  };
-  
-  remove(id) {
-    const ride = getRidebyId(id);
-    if(!ride) throw 'Remove error. Couldn´t find ride with that id.'
-    this.rides.splice(this.rides.indexOf(ride), 1);
+  create() {
+    const reachedLimit = this.localRides.length >= this.RIDELIMIT;
+    if (reachedLimit) throw `Error. Reached maximum rides (${this.RIDELIMIT}.)`;
+
+    const newRide = new Ride({
+      id: this.getLastIDCreated() + 1,
+      from: prompt("Departure city?"),
+      to: prompt("Destination?"),
+      cost: +prompt("Ride cost (€)?"),
+      scale: confirm("The ride has a scale...?")
+    });
+    this.simpleValidate(newRide) && this.add(newRide);
+  }
+
+  simpleValidate(ride) {
+    const { id, from, cost, scale } = ride;
+    const isValid = "" + id && "" + from && isFinite(cost) && scale;
+    if (isValid) return true;
+    else throw "ups. Something went wrong during ride creation";
+  }
+
+  add(ride) {
+    this.localRides.push(ride);
     this.saveAll();
   }
-  
-  saveAll () { localStorage.setItem('rides', JSON.stringify(this.rides)) }
-  
-  getRidebyId (id) { return this.rides.find(x => x.id === id) }
-  
-  getRides () { 
-    return this.getStoredRides() || this.rides;
+
+  update(id) {
+    console.log("item updated");
+    this.saveAll();
   }
 
-  getStoredRides () { 
-    return JSON.parse(localStorage.getItem('rides')) 
+  remove(id) {
+    const ride = this.getRidebyId(id);
+    if (!ride) throw "Remove error. Couldn´t find ride with that id.";
+    const confirmMsg = `Are you sure you want to delete ride ${ride.id} ${
+      ride.from
+    } - ${ride.to}?`;
+    if (confirm(confirmMsg)) {
+      this.localRides.splice(this.localRides.indexOf(ride), 1);
+      this.saveAll();
+    }
   }
 
+  saveAll() {
+    localStorage.setItem("rides", JSON.stringify(this.localRides));
+  }
+
+  getRidebyId(id) {
+    return this.localRides.find(x => x.id == id);
+  }
+  getRideLocalIndex(ride) {
+    return this.localRides.findIndex(x => ride.id == x.id);
+  }
+
+  getRides() {
+    return this.localRides;
+  }
+
+  getStoredRides() {
+    return JSON.parse(localStorage.getItem("rides"));
+  }
+
+  getLastIDCreated() {
+    return Math.max(...this.localRides.map(x => x.id));
+  }
 }

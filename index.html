@@ -11,17 +11,15 @@
       <div>
         <form action="/">
           <fieldset>
-            <legend>Filter by price</legend>
-            <label for="minprice">Cost</label>
+            <legend>Limit price</legend>
+            <label for="minprice">€</label>
             <input type="range" name="minprice" id="minprice" value="0" />
           </fieldset>
         </form>
         <ul id="icon-legend">
           <li>
-            <img
-              src="images/taxistop.png"
-              alt="Icon of a taxi in the stop"
-            />Ride stops
+            <img src="images/taxistop.png" alt="Icon of a taxi in the stop" />
+            Ride stops
           </li>
         </ul>
       </div>
@@ -29,6 +27,7 @@
       <table>
         <thead>
           <tr>
+            <th><a href="#" class="data-id">ID</a></th>
             <th><a href="#" class="sort-by">Destination</a></th>
             <th><a href="#" class="sort-by">Departure</a></th>
             <th><a href="#" class="sort-by">Price</a></th>
@@ -39,5 +38,5 @@
       </table>
     </main>
   </body>
-  <script type="module" src="main.js"></script>
+  <script src="main.js" type="module"></script>
 </html>
