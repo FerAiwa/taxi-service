@@ -14,7 +14,7 @@ export const Main = (() => {
   };
 
   //Initialize
-  const user = { name: "Fer", permissions: "admin" }; //LoginService()
+  const user = LoginService();
   const viewPresset =
     user.permissions === "admin"
       ? {
