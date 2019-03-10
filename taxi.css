@@ -2,10 +2,10 @@ thead tr th:first-child,
 tbody tr td:first-child {
   display: none;
 }
-th,
+/* th,
 tbody tr td:nth-child(4) {
   text-align: center;
-}
+} */
 
 tbody button {
   width: 1.5rem;
@@ -35,9 +35,6 @@ button.edit {
   background-image: url(images/edit-button.svg);
 }
 
-html {
-  font-size: 14px;
-}
 body {
   font-family: sans-serif;
 }
@@ -69,9 +66,9 @@ thead {
 
 tr {
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+  display: inline-flex;
+  justify-content: flex-start;
+
   padding: 1px 5px;
 }
 
@@ -81,7 +78,7 @@ tbody tr:nth-of-type(even) {
 
 td,
 th {
-  min-width: 25%;
+  width: 15%;
 }
 
 #intro {
@@ -158,12 +155,12 @@ tbody > tr td:last-child {
   align-items: center;
 }
 figure.table-glyph {
-  display: flex;
+  display: inline-block;
   width: 2.5rem;
   margin: 0;
 }
 figure.table-glyph img {
-  height: 100%;
+  width: 100%;
 }
 
 /* TODO: Reset button style and set it according to theme */
@@ -182,7 +179,6 @@ fieldset label {
 }
 
 #icon-legend {
-  /*   flex-grow: 1; */
   display: inline-flex;
   flex-flow: row wrap;
   box-sizing: border-box;
