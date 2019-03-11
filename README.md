@@ -28,7 +28,7 @@ Soon some code refactor of the controller part, and probably CSS boosting.
 
 **Documentation**
 
-- Added some JSDoc' documentation to the code. (./docs/index.html)
+- Added some JSDoc' documentation to the code.
 
 ## Bootcamp Week 3: 2019/3/4 - 2019/3/10
 
