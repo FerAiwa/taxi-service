@@ -14,25 +14,27 @@
 
 ## What´s my goal here?
 
-With this exercise I`m trying to understand patterns like MVC. Deep diving in concepts like componentes, modules, and the principle of single responsibility. Before going back to bundlers or frameworks... I realy want to learn about how to keep my code clean, flexible and scalable."
+With this exercise I´m trying to understand patterns like MVC. Deep diving in concepts like componentes, modules, and the principle of single responsibility. Before going back to bundlers or frameworks... I realy want to learn about how to keep my code clean, flexible and scalable."
 This is just a rookie exercise, so there are probably tons of mistakes around.
 If you want to help me, I´m open to suggestions!
 
-# Upcoming changes (week4)
 
-Soon some code refactor of the controller part, and probably CSS boosting.
+## Changelog
 
-# Changelog
-
-## Latest - 2019/3/11
+### Latest - 2019/3/11
 
 **Documentation**
 
 - Added some JSDoc' documentation to the code.
 
-## Bootcamp Week 3: 2019/3/4 - 2019/3/10
+### Upcoming changes (week4)
 
-### Features
+Soon some code refactor of the controller part, and probably CSS boosting.
+
+### Story 
+Bootcamp Week 3: 2019/3/4 - 2019/3/10
+
+#### Features
 
 - Now Main module behaves diferently if you identify yourself as a 'admin' or a user,
   displaying diferent controls for the rides table.
@@ -50,7 +52,7 @@ Soon some code refactor of the controller part, and probably CSS boosting.
   - Table is now a separated component.
   - Implemented a ViewFactory to generate diferent views depending on configuration object.
 
-### Bug Fixes
+#### Bug Fixes
 
 - **UI:** Fixed slider controls & tableheader.
 - **UI:** Rows now properly update on slider changes & clicks on table headers.
