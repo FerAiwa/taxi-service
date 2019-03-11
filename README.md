@@ -2,9 +2,15 @@
 
 2nd Hack a Bos Bootcamp Challenge - Taxi Service with user/admin views
 
-# Live Demo
+# Resources
+
+## Live Demo
 
 - [Taxi-Service v.1.0](https://feraiwa.github.io/taxi-service/)
+
+## Documentation
+
+- [JSDoc](./docs/index.html)
 
 # What´s my goal here?
 
@@ -22,7 +28,7 @@ Soon some code refactor of the controller part, and probably CSS boosting.
 
 **Documentation**
 
-- Added some JSDoc documentation to the code.
+- Added some JSDoc' documentation to the code. (./docs/index.html)
 
 ## Bootcamp Week 3: 2019/3/4 - 2019/3/10
 
