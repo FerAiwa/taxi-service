@@ -2,12 +2,12 @@
 
 2nd Hack a Bos Bootcamp Challenge - Taxi Service with user/admin views
 
-
 # Live Demo
 
 - [Taxi-Service v.1.0](https://feraiwa.github.io/taxi-service/)
 
-# What´s my goal here? 
+# What´s my goal here?
+
 With this exercise I`m trying to understand patterns like MVC. Deep diving in concepts like componentes, modules, and the principle of single responsibility. Before going back to bundlers or frameworks... I realy want to learn about how to keep my code clean, flexible and scalable."
 This is just a rookie exercise, so there are probably tons of mistakes around.
 If you want to help me, I´m open to suggestions!
@@ -17,6 +17,12 @@ If you want to help me, I´m open to suggestions!
 Soon some code refactor of the controller part, and probably CSS boosting.
 
 # Changelog
+
+## Latest - 2019/3/11
+
+**Documentation**
+
+- Added some JSDoc documentation to the code.
 
 ## Bootcamp Week 3: 2019/3/4 - 2019/3/10
 

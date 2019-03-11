@@ -1,9 +1,11 @@
 import { RidesView } from "./rides.view.js";
 import { Table } from "./table.js";
 
-/** Factory that generates a new rides view and attach diferent eventListeners depending on user configuration object.
- *
- * @param  {} config {sliders: boolean, buttons: {buy: boolean, edit: boolean,create: boolean, erase: boolean}
+/** Factory function. Instanciates a new ride view and extends it attaching buttons, eventListeners & custom event emitters based on the configuration object.
+ * @param {Object} config             - Contains info about what the factory should attach to the view.
+ * @param {boolean} config.sliders    - Attach slider to the ride view.
+ * @param {boolean[]} config.buttons  -  Add button name
+ * @param {HTMLTableElement} tableRef - The DOM element that will host the table data.
  */
 export function RidesViewFactory(
   config = { sliders, buttons: { buy, edit, create, erase } },
@@ -24,6 +26,9 @@ export function RidesViewFactory(
     name => config.buttons[name]
   );
 
+  /** Appends buttons to the view
+   * @param {HTMLElement=}  target [optional] Where to attach the created
+   * */
   function addButtons(target) {
     const lastCellxRow = document.querySelectorAll("tbody tr td:last-child");
     lastCellxRow.forEach(cell =>
@@ -31,10 +36,16 @@ export function RidesViewFactory(
     );
   }
 
+  /**
+   * @return {HTMLButtonElement[]} Creates one button, attach a click listener and a custom event emitter that will be handled by the controller.
+   */
   function getButtons() {
     return btnNames.map(createButton).map(btn => addBtnEmitter(btn));
   }
 
+  /**
+   * @param {string} btnClass
+   */
   function createButton(btnClass) {
     const newBtn = document.createElement("button");
     if (btnClass) {
@@ -44,12 +55,19 @@ export function RidesViewFactory(
     return newBtn;
   }
 
+  /**Adds a click event listener  and a custom event emitter.
+   * @param {HTMLButtonElement} btn
+   * @param {string=} customEventName
+   */
   function addBtnEmitter(btn, customEventName) {
     customEventName = customEventName || btn.name + DEFAULTEVENTNAME;
     btn.addEventListener("click", e => view.emit(customEventName, e));
     return btn;
   }
 
+  /**
+   * Adds click event listener to the table headers, that will trigger 'headerClick' custom events.
+   */
   function addTableHeaderListeners() {
     const tableFields = document
       .querySelectorAll("th")
@@ -58,7 +76,9 @@ export function RidesViewFactory(
       );
     return view;
   }
-
+  /**
+   * Adds input & change even listeners to a input type slider, that will trigger 'sliderChange' and 'sliderRelease' custom events.
+   */
   function addSliderListeners() {
     const slider = document.querySelector(`input[type="range"]`);
     slider.addEventListener("input", e =>

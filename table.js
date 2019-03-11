@@ -1,6 +1,3 @@
-/* const id = values.shift(); //Id is not renderer in the template, but as data-ride
-row.setAttribute("data-ride", id); */
-
 /**
  * Table component with some shortcuts to setup the tbody content and properties.
  */

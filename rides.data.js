@@ -1,5 +1,6 @@
 import { Ride } from "./models/ride.js";
 
+/** Holds the Rides Data mocks and interacts with local storage. */
 export class RidesDataService {
   constructor() {
     this.RIDELIMIT = 8;
@@ -29,6 +30,7 @@ export class RidesDataService {
     this.simpleValidate(newRide) && this.add(newRide);
   }
 
+  /*** @param {Ride} ride  */
   simpleValidate(ride) {
     const { id, from, cost, scale } = ride;
     const isValid = "" + id && "" + from && isFinite(cost) && scale;
@@ -36,16 +38,18 @@ export class RidesDataService {
     else throw "ups. Something went wrong during ride creation";
   }
 
+  /*** @param {Ride} ride  */
   add(ride) {
     this.localRides.push(ride);
     this.saveAll();
   }
-
+  /** @param {string} id */
   update(id) {
     console.log("item updated");
     this.saveAll();
   }
 
+  /** @param {string} id */
   remove(id) {
     const ride = this.getRidebyId(id);
     if (!ride) throw "Remove error. Couldn´t find ride with that id.";
@@ -65,9 +69,6 @@ export class RidesDataService {
   getRidebyId(id) {
     return this.localRides.find(x => x.id == id);
   }
-  getRideLocalIndex(ride) {
-    return this.localRides.findIndex(x => ride.id == x.id);
-  }
 
   getRides() {
     return this.localRides;
@@ -79,5 +80,9 @@ export class RidesDataService {
 
   getLastIDCreated() {
     return Math.max(...this.localRides.map(x => x.id));
+  }
+
+  getRideLocalIndex(ride) {
+    return this.localRides.findIndex(x => ride.id == x.id);
   }
 }
