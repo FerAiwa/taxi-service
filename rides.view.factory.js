@@ -36,8 +36,8 @@ export function RidesViewFactory(
     );
   }
 
-  /**
-   * @return {HTMLButtonElement[]} Creates one button, attach a click listener and a custom event emitter that will be handled by the controller.
+  /** Creates one button, attach a click listener and a custom event emitter that will be handled by the controller.
+   * @return {HTMLButtonElement[]}
    */
   function getButtons() {
     return btnNames.map(createButton).map(btn => addBtnEmitter(btn));
