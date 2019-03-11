@@ -10,7 +10,7 @@
 
 ## Documentation
 
-- [JSDoc](https://github.com/FerAiwa/taxi-service/docs/index.html)
+- [JSDoc](https://feraiwa.github.io/taxi-service/docs)
 
 # What´s my goal here?
 
