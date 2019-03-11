@@ -32,6 +32,7 @@ export class RidesView extends EventEmitter {
   }
 
   //Slider ------------------------------------------------------------------------------------
+
   /** Sets the slider (input range) min and max property values.
    *  @param {number} min  @param {number} max
    **/
@@ -42,6 +43,7 @@ export class RidesView extends EventEmitter {
     slider.max = max;
     this.updateSliderHelper(slider.value);
   }
+
   /** Updates the cost value shown next to the slider.
    * @param {number|string} value
    */
